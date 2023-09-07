@@ -1,0 +1,27 @@
+@use 'base/variables';
+@use 'base/mixins';
+
+.header {
+  background-image: url(../../../build/img/header.webp);
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 0 20rem 0;
+  &__busqueda {
+    margin-top: 5rem;
+    text-align: center;
+    @include mixins.desktop {
+      margin-top: 30rem;
+    }
+  }
+  &__busqueda-label {
+    color: variables.$blanco;
+    font-weight: 600;
+  }
+  &__busqueda-boton {
+    @include mixins.boton(variables.$primario, variables.$blanco);
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

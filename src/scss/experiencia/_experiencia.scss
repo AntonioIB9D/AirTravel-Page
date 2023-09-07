@@ -1,0 +1,39 @@
+@use 'base/variables';
+@use 'base/mixins';
+
+.experiencias {
+  padding: 3rem 0;
+  &__listado {
+    display: grid;
+    grid-template-columns: repeat(3, 30rem);
+    column-gap: 2rem;
+    @include mixins.scrollHorizontal;
+    @include mixins.tablet {
+      overflow-y: hidden;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory; /*Tipo de scroll que tendra el grid */
+
+      /*Se aplica al primer nivel de hijos */
+      > * {
+        scroll-snap-align: center; /* Una vez que se haga el snap donde quedara */
+      }
+    }
+    @include mixins.desktop {
+      @include mixins.grid(3, 2rem);
+      overflow: hidden;
+    }
+  }
+}
+
+.experiencia {
+  &__imagen {
+    border-radius: 1rem;
+  }
+  &__titulo {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  &__descripcion {
+    font-size: 1.8rem;
+  }
+}

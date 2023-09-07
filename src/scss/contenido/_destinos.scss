@@ -1,0 +1,40 @@
+@use 'base/variables';
+@use 'base/mixins';
+
+.destinos {
+  padding: 3rem 0;
+  &__heading {
+  }
+  &__grid {
+    @include mixins.grid(1, 2rem);
+
+    @include mixins.tablet {
+      @include mixins.grid(2, 2rem);
+    }
+
+    @include mixins.desktop {
+      @include mixins.grid(4, 2rem);
+    }
+  }
+}
+
+.destino {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+  background-color: variables.$grisClaro;
+  border-bottom: 2px solid variables.$gris;
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &__imagen {
+    width: 14rem;
+    height: 14rem;
+  }
+  &__nombre,
+  &__distancia {
+    margin: 0;
+  }
+}

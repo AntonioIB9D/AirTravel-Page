@@ -1,0 +1,40 @@
+@use 'base/variables';
+@use 'base/mixins';
+
+.barra {
+  display: none;
+  @include mixins.desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navegacion {
+    @include mixins.desktop {
+      display: flex;
+      gap: 4rem;
+    }
+  }
+
+  &__login {
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link {
+    color: variables.$blanco;
+    font-weight: 600;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__nombre {
+    color: variables.$blanco;
+    font-weight: 700;
+    margin: 0;
+  }
+}
